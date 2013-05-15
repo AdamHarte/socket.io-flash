@@ -1,5 +1,6 @@
 package io.socket.flash
 {
+	import flash.display.Sprite;
 	import flash.display.DisplayObject;
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
@@ -16,10 +17,10 @@ package io.socket.flash
 		private var _pollingLoader:URLLoader;
 		private var _httpDataSender:HttpDataSender;
 
-		public function XhrPollingTransport(hostname:String, displayObject:DisplayObject)
+		public function XhrPollingTransport(hostname:String)
 		{
 			super("http://" + hostname);
-			_displayObject = displayObject;
+			_displayObject = new Sprite();
 		}
 
 		public override function connect():void

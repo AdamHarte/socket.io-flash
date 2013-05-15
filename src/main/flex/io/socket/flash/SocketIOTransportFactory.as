@@ -1,6 +1,5 @@
 package io.socket.flash
 {
-	import flash.display.DisplayObject;
 	import flash.utils.Dictionary;
 
 	public class SocketIOTransportFactory implements ISocketIOTransportFactory
@@ -13,9 +12,9 @@ package io.socket.flash
 			_transpors[WebsocketTransport.TRANSPORT_TYPE] = WebsocketTransport;
 		}
 		
-		public function createSocketIOTransport(transportName:String, hostname:String, displayObject:DisplayObject):ISocketIOTransport	
+		public function createSocketIOTransport(transportName:String, hostname:String):ISocketIOTransport	
 		{
-			return new _transpors[transportName](hostname, displayObject);
+			return new _transpors[transportName](hostname);
 		}
 	}
 }

@@ -1,6 +1,5 @@
 package io.socket.flash
 {
-	import flash.display.DisplayObject;
 	import flash.external.ExternalInterface;
 	
 	import net.gimite.websocket.IWebSocketLogger;
@@ -21,12 +20,11 @@ package io.socket.flash
 		private var _status:int = DISCONNECTED;
 		private var _simpeHostname:String;
 		
-		public function WebsocketTransport(hostname:String, displayObject:DisplayObject)
+		public function WebsocketTransport(hostname:String)
 		{
 			super("http://" + hostname);
 			_simpeHostname = hostname;
 			_origin = "http://" + hostname + "/";
-			_displayObject = displayObject;
 			if (ExternalInterface.available)
 			{
 				try 
