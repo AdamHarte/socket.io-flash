@@ -122,6 +122,9 @@ package io.socket.flash
 				var data:String = message.substr(index, message.length);
 				switch (type)
 				{
+					case Packet.DISCONNECT_TYPE:
+						disconnect();
+						return;
 					case Packet.CONNECT_TYPE:
 						fireConnected();
 						break;
@@ -134,9 +137,6 @@ package io.socket.flash
 					case Packet.JSON_TYPE:
 						fireMessageEvent(JSON.parse(data));
 						break;
-					case Packet.DISCONNECT_TYPE:
-						disconnect();
-						return;
 					case Packet.ERROR_TYPE:
 						disconnect();						
 					default:
