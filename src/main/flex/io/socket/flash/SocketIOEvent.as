@@ -7,6 +7,7 @@ package io.socket.flash
 		public static const CONNECT:String = "connect";
 		public static const DISCONNECT:String = "disconnect";
 		public static const MESSAGE:String = "message";
+		public static const EVENT:String = "event";
 		
 		private var _message:Object;
 		

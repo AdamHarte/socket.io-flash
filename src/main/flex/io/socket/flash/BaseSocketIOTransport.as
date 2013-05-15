@@ -137,8 +137,18 @@ package io.socket.flash
 					case Packet.JSON_TYPE:
 						fireMessageEvent(JSON.parse(data));
 						break;
+					case Packet.EVENT_TYPE:
+						fireEventEvent(JSON.parse(data));
+						break;
+					case Packet.ACK_TYPE:
+						//
+						break;
 					case Packet.ERROR_TYPE:
-						disconnect();						
+						disconnect();
+						break;
+					case Packet.NOOP_TYPE:
+						//
+						break;
 					default:
 				}
 			}
@@ -158,6 +168,13 @@ package io.socket.flash
 		{
 			var messageEvent:SocketIOEvent;
 			messageEvent = new SocketIOEvent(SocketIOEvent.MESSAGE, message);
+			dispatchEvent(messageEvent);
+		}
+		
+		protected function fireEventEvent(message:Object):void 
+		{
+			var messageEvent:SocketIOEvent;
+			messageEvent = new SocketIOEvent(SocketIOEvent.EVENT, message);
 			dispatchEvent(messageEvent);
 		}
 		
