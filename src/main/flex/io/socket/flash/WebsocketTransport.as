@@ -13,7 +13,6 @@ package io.socket.flash
 		private static var CONNECTED:int = 1;
 		private static var DISCONNECTED:int = 2;
 		
-		private var _displayObject:DisplayObject;
 		private var _webSocket:WebSocket;
 		private var _origin:String;
 		private var _cookie:String;
