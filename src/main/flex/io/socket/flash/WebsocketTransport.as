@@ -1,7 +1,5 @@
 package io.socket.flash
 {
-	import com.adobe.serialization.json.JSON;
-	
 	import flash.display.DisplayObject;
 	import flash.external.ExternalInterface;
 	

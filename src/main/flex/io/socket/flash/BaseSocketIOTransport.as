@@ -1,7 +1,5 @@
 package io.socket.flash
 {
-	import com.adobe.serialization.json.JSON;
-	
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
@@ -134,7 +132,7 @@ package io.socket.flash
 						fireMessageEvent(data);
 						break;
 					case Packet.JSON_TYPE:
-						fireMessageEvent(com.adobe.serialization.json.JSON.decode(data));
+						fireMessageEvent(JSON.parse(data));
 						break;
 					case Packet.DISCONNECT_TYPE:
 						disconnect();
@@ -234,7 +232,7 @@ package io.socket.flash
 				case Packet.MESSAGE_TYPE:
 					return Packet.MESSAGE_TYPE + ":::" + String(packet.data);
 				case Packet.JSON_TYPE:
-					return Packet.JSON_TYPE + ":::" + com.adobe.serialization.json.JSON.encode(packet.data);
+					return Packet.JSON_TYPE + ":::" + JSON.stringify(packet.data);
 				default:
 					return "";
 			}
